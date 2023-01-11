@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//BASIC BINARY TREE
 /**
  * struct binary_tree_s - Binary tree node
  *

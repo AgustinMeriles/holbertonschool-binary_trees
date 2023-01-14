@@ -21,7 +21,7 @@ size_t binary_tree_leaves_cus(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_height_cus - get height of binary tree
+ * binary_tree_height_cust - get height of binary tree
  *
  * @tree: pointer to the root node.
  *

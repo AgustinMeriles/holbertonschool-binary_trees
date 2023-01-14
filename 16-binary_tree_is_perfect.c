@@ -27,16 +27,15 @@ size_t binary_tree_leaves_cus(const binary_tree_t *tree)
  *
  * Return: 0 if tree is null, tree height otherwise.
 */
-size_t binary_tree_height_cus(const binary_tree_t *tree)
+size_t binary_tree_height_cust(const binary_tree_t *tree)
 {
 	size_t retL, retR;
 
-	if (!tree)
+	if (!tree || (!tree->left && !tree->right))
 		return (0);
-
-	retL = binary_tree_height_cus(tree->left) + 1;
-	retR = binary_tree_height_cus(tree->right) + 1;
-	return ((retL > retR) ? retL : retR);
+	retL = binary_tree_height_cust(tree->left);
+	retR = binary_tree_height_cust(tree->right);
+	return ((retL > retR ? retL : retR) + 1);
 }
 
 /**
@@ -52,16 +51,19 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	if (!tree)
 		return (0);
+	if (!tree->left && !tree->right)
+		return (1);
 
-	height = binary_tree_height_cus(tree);
+	height = binary_tree_height_cust(tree);
 	leaves = binary_tree_leaves_cus(tree);
 
+printf("Counter %d, Leaves %d, height %d \n", counter, leaves, height);
 	while (height > 0)
 	{
-		counter *= 2;
+		counter = counter * 2;
 		height--;
 	}
-
+	printf("Counter %d, Leaves %d, height %d \n", counter, leaves, height);
 	if (counter == leaves)
 		return (1);
 

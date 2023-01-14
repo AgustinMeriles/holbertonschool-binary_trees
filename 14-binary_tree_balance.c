@@ -1,7 +1,6 @@
 #include "binary_trees.h"
-
 /**
- * binary_tree_height - get height of binary tree
+ * binary_tree_height_cus - get height of binary tree
  *
  * @tree: pointer to the root node.
  *
@@ -31,5 +30,6 @@ int binary_tree_balance(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return (binary_tree_height_cus(tree->left) - binary_tree_height_cus(tree->right));
+	return (binary_tree_height_cus(tree->left) -
+		binary_tree_height_cus(tree->right));
 }

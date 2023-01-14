@@ -57,13 +57,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	height = binary_tree_height_cust(tree);
 	leaves = binary_tree_leaves_cus(tree);
 
-printf("Counter %d, Leaves %d, height %d \n", counter, leaves, height);
 	while (height > 0)
 	{
 		counter = counter * 2;
 		height--;
 	}
-	printf("Counter %d, Leaves %d, height %d \n", counter, leaves, height);
 	if (counter == leaves)
 		return (1);
 
